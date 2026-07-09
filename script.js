@@ -10,22 +10,90 @@
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ------------------------------------------------------------
-     1. Loader → hero title reveal
+     1. Curtain — ローディング & ページ遷移を同じ幕で統一
+        入場: 幕が画面を覆った状態 → ブランド文字がせり上がる → 幕が上に抜ける
+        退場: リンククリック → 幕が下からせり上がって覆う → ページ移動
   ------------------------------------------------------------ */
-  const loader = document.getElementById("loader");
+  const curtain = document.getElementById("curtain");
+  const panel = document.getElementById("curtainPanel");
+  const brand = curtain ? curtain.querySelector(".curtain__brand") : null;
 
-  window.addEventListener("load", () => {
+  // ブランド文字を1文字ずつ分割(スタッガー用)
+  if (brand) {
+    const text = brand.textContent;
+    brand.textContent = "";
+    brand.setAttribute("aria-label", text);
+    [...text].forEach((ch, i) => {
+      const span = document.createElement("span");
+      span.className = "b-char";
+      span.setAttribute("aria-hidden", "true");
+      span.textContent = ch === " " ? "\u00A0" : ch;
+      span.style.transitionDelay = `${i * 0.035}s`;
+      brand.appendChild(span);
+    });
+  }
+
+  // ---- 入場アニメーション ----
+  let curtainOpened = false;
+  const openCurtain = () => {
+    if (curtainOpened || !curtain) return;
+    curtainOpened = true;
+    // 文字がせり上がる
+    requestAnimationFrame(() => curtain.classList.add("is-intro"));
+    // 少し見せてから幕が上に抜ける
     setTimeout(() => {
-      loader.classList.add("is-done");
+      curtain.classList.add("is-open");
       document.body.classList.add("is-loaded");
-    }, prefersReduced ? 0 : 1100);
+    }, prefersReduced ? 0 : 1500);
+  };
+
+  window.addEventListener("load", openCurtain, { once: true });
+  setTimeout(openCurtain, 3200); // フォールバック
+
+  // ---- 退場アニメーション(ページ間リンクを横取り) ----
+  const closeCurtainAndGo = (href) => {
+    if (!curtain || !panel) {
+      location.href = href;
+      return;
+    }
+    curtain.classList.remove("is-open");
+    // 幕を画面下に瞬間移動させてから、下→上に覆う
+    panel.style.transition = "none";
+    panel.style.transform = "translateY(118%)";
+    void panel.offsetHeight; // reflow
+    panel.style.transition = "";
+    panel.style.transform = "translateY(0)";
+    setTimeout(() => { location.href = href; }, prefersReduced ? 0 : 1050);
+  };
+
+  document.querySelectorAll("a[href]").forEach((a) => {
+    const href = a.getAttribute("href");
+    if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return;
+    if (a.target === "_blank") return;
+    let url;
+    try { url = new URL(href, location.href); } catch { return; }
+    // 同一サイト(ローカル or GitHub Pages)のページ遷移のみアニメーション
+    const sameSite =
+      url.origin === location.origin ||
+      url.href.includes("k12ma.github.io/founder.portfolio");
+    if (!sameSite) return;
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeCurtainAndGo(url.href);
+    });
   });
 
-  // Fallback: 3秒以内にloadが来なくても開始する
-  setTimeout(() => {
-    loader.classList.add("is-done");
-    document.body.classList.add("is-loaded");
-  }, 3000);
+  // 戻る/進む(bfcache)で幕が残らないようにリセット
+  window.addEventListener("pageshow", (e) => {
+    if (e.persisted && curtain && panel) {
+      panel.style.transition = "none";
+      panel.style.transform = "";
+      curtain.classList.add("is-intro", "is-open");
+      document.body.classList.add("is-loaded");
+      void panel.offsetHeight;
+      panel.style.transition = "";
+    }
+  });
 
   /* ------------------------------------------------------------
      2. Split text — [data-split] を1文字ずつ / [data-split-lines] を行ごとに分割
