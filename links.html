@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Links — Souya Komatsu</title>
+  <meta name="description"
+    content="小松蒼也 / Souya Komatsu — Links. Mechanical Engineering Student building EdTech products for future engineers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Archivo:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-links">
+
+  <!-- ===== Loader ===== -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <span class="loader__text">SOUYA KOMATSU</span>
+      <span class="loader__bar"><span class="loader__bar-fill"></span></span>
+    </div>
+  </div>
+
+  <!-- ===== Custom cursor ===== -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- ===== Header (ロゴを押すとポートフォリオへ) ===== -->
+  <header class="header">
+    <a href="https://k12ma.github.io/founder.portfolio/" class="header__logo magnetic" data-cursor="hover">S.K</a>
+    <nav class="header__nav">
+      <a href="https://k12ma.github.io/founder.portfolio/#about" class="header__link magnetic" data-cursor="hover">About</a>
+      <a href="https://k12ma.github.io/founder.portfolio/#mechaedu" class="header__link magnetic" data-cursor="hover">MECHAEDU</a>
+      <a href="https://k12ma.github.io/founder.portfolio/#skills" class="header__link magnetic" data-cursor="hover">Skills</a>
+      <a href="https://k12ma.github.io/founder.portfolio/#education" class="header__link magnetic" data-cursor="hover">Education</a>
+      <a href="https://k12ma.github.io/founder.portfolio/#vision" class="header__link magnetic" data-cursor="hover">Vision</a>
+      <a href="https://k12ma.github.io/founder.portfolio/#contact" class="header__link header__link--cta magnetic fill-hover"
+        data-cursor="hover">Contact</a>
+    </nav>
+    <button class="header__burger magnetic" id="burger" aria-label="menu" data-cursor="hover">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ===== Mobile menu ===== -->
+  <div class="menu" id="menu">
+    <nav class="menu__nav">
+      <a href="https://k12ma.github.io/founder.portfolio/#about" class="menu__link fill-hover">About</a>
+      <a href="https://k12ma.github.io/founder.portfolio/#mechaedu" class="menu__link fill-hover">MECHAEDU</a>
+      <a href="https://k12ma.github.io/founder.portfolio/#skills" class="menu__link fill-hover">Skills</a>
+      <a href="https://k12ma.github.io/founder.portfolio/#education" class="menu__link fill-hover">Education</a>
+      <a href="https://k12ma.github.io/founder.portfolio/#vision" class="menu__link fill-hover">Vision</a>
+      <a href="https://k12ma.github.io/founder.portfolio/#contact" class="menu__link fill-hover">Contact</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- ===== HERO (ポートフォリオと同じ表示) ===== -->
+    <section class="hero hero--links" id="home">
+      <p class="hero__eyebrow reveal">Links — 2026</p>
+      <h1 class="hero__title">
+        <span class="hero__line"><span class="hero__word">Mechanical</span></span>
+        <span class="hero__line"><span class="hero__word">Engineering <em>Student</em></span></span>
+        <span class="hero__line"><span class="hero__word">building <em>EdTech</em></span></span>
+        <span class="hero__line"><span class="hero__word">products for</span></span>
+        <span class="hero__line"><span class="hero__word">future engineers<span class="hero__dot">.</span></span></span>
+      </h1>
+      <div class="hero__meta reveal">
+        <div>
+          <p class="hero__name">小松 蒼也 / Souya Komatsu</p>
+          <p class="hero__role">Mechanical Engineering Student / EdTech Developer</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LINKS ===== -->
+    <section class="section linktree">
+      <ul class="contact__list">
+        <!-- href は後からご自身のリンクに差し替えてください -->
+        <li class="reveal"><a href="https://k12ma.github.io/founder.portfolio/" class="contact__link fill-hover"
+            data-cursor="hover"><span>Portfolio</span><span class="contact__arrow">↗</span></a></li>
+        <li class="reveal"><a href="mailto:" class="contact__link fill-hover"
+            data-cursor="hover"><span>Email</span><span class="contact__arrow">↗</span></a></li>
+        <li class="reveal"><a href="#" class="contact__link fill-hover" data-cursor="hover"><span>GitHub</span><span
+              class="contact__arrow">↗</span></a></li>
+        <li class="reveal"><a href="#" class="contact__link fill-hover" data-cursor="hover"><span>X /
+              Instagram</span><span class="contact__arrow">↗</span></a></li>
+        <li class="reveal"><a href="#" class="contact__link fill-hover" data-cursor="hover"><span>YouTube</span><span
+              class="contact__arrow">↗</span></a></li>
+        <li class="reveal"><a href="#" class="contact__link fill-hover" data-cursor="hover"><span>LinkedIn</span><span
+              class="contact__arrow">↗</span></a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer footer--links">
+    <div class="footer__bottom">
+      <p>© 2026 Souya Komatsu</p>
+      <a href="https://k12ma.github.io/founder.portfolio/" class="footer__top magnetic fill-hover"
+        data-cursor="hover">Portfolio ↗</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
