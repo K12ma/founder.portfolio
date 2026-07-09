@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Souya Komatsu — Portfolio</title>
+  <meta name="description"
+    content="小松蒼也 / Souya Komatsu — Mechanical Engineering Student building EdTech products for future engineers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Archivo:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ===== Loader ===== -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <span class="loader__text">SOUYA KOMATSU</span>
+      <span class="loader__bar"><span class="loader__bar-fill"></span></span>
+    </div>
+  </div>
+
+  <!-- ===== Custom cursor ===== -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <a href="#home" class="header__logo magnetic" data-cursor="hover">S.K</a>
+    <nav class="header__nav">
+      <a href="#about" class="header__link magnetic" data-cursor="hover">About</a>
+      <a href="#mechaedu" class="header__link magnetic" data-cursor="hover">MECHAEDU</a>
+      <a href="#skills" class="header__link magnetic" data-cursor="hover">Skills</a>
+      <a href="#education" class="header__link magnetic" data-cursor="hover">Education</a>
+      <a href="#vision" class="header__link magnetic" data-cursor="hover">Vision</a>
+      <a href="#contact" class="header__link header__link--cta magnetic fill-hover" data-cursor="hover">Contact</a>
+    </nav>
+    <button class="header__burger magnetic" id="burger" aria-label="menu" data-cursor="hover">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ===== Mobile menu ===== -->
+  <div class="menu" id="menu">
+    <nav class="menu__nav">
+      <a href="#about" class="menu__link fill-hover">About</a>
+      <a href="#mechaedu" class="menu__link fill-hover">MECHAEDU</a>
+      <a href="#skills" class="menu__link fill-hover">Skills</a>
+      <a href="#education" class="menu__link fill-hover">Education</a>
+      <a href="#vision" class="menu__link fill-hover">Vision</a>
+      <a href="#contact" class="menu__link fill-hover">Contact</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- ===== HOME / HERO ===== -->
+    <section class="hero" id="home">
+      <p class="hero__eyebrow reveal">Portfolio — 2026</p>
+      <h1 class="hero__title" id="heroTitle">
+        <span class="hero__line"><span class="hero__word">Mechanical</span></span>
+        <span class="hero__line"><span class="hero__word">Engineering <em>Student</em></span></span>
+        <span class="hero__line"><span class="hero__word">building <em>EdTech</em></span></span>
+        <span class="hero__line"><span class="hero__word">products for</span></span>
+        <span class="hero__line"><span class="hero__word">future engineers<span class="hero__dot">.</span></span></span>
+      </h1>
+      <div class="hero__meta reveal">
+        <div>
+          <p class="hero__name">小松 蒼也 / Souya Komatsu</p>
+          <p class="hero__role">Mechanical Engineering Student / EdTech Developer / Entrepreneur</p>
+        </div>
+        <a href="#about" class="btn btn--circle magnetic fill-hover" data-cursor="hover">
+          <span>Scroll<br>Down</span>
+        </a>
+      </div>
+      <div class="hero__marquee" aria-hidden="true">
+        <div class="hero__marquee-track">
+          <span>SOUYA KOMATSU — MECHANICAL × EDTECH — </span>
+          <span>SOUYA KOMATSU — MECHANICAL × EDTECH — </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section about" id="about">
+      <div class="section__head">
+        <p class="section__index reveal">01</p>
+        <h2 class="section__title" data-split>About Me</h2>
+      </div>
+      <div class="about__grid">
+        <div class="about__photo photo-reveal">
+          <div class="photo-reveal__mask">
+            <!--<img src="https://placehold.co/720x900/e8ecf4/9aa3b5?text=PHOTO" alt="小松蒼也のポートレート" class="photo-reveal__img"
+              data-parallax>
+          </div> -->
+            <img src="Souya.jpg" alt="小松蒼也のポートレート" class="photo-reveal__img" data-parallax>
+          </div>
+        </div>
+        <div class="about__body">
+          <p class="about__lead reveal">
+            機械の仕組みに惹かれ、学びの仕組みをつくる。<br>
+            エンジニアリングと教育のあいだで活動しています。
+          </p>
+          <ul class="about__list">
+            <li class="reveal"><span class="about__num">a.</span>東洋大学 理工学部 機械工学科</li>
+            <li class="reveal"><span class="about__num">b.</span>機械工学・数学・物理を学習中</li>
+            <li class="reveal"><span class="about__num">c.</span>教育アプリ <strong>MECHAEDU</strong> を開発中</li>
+            <li class="reveal"><span class="about__num">d.</span>将来は 機械工学 × AI / EdTech 方面へ</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MECHAEDU ===== -->
+    <section class="section mechaedu" id="mechaedu">
+      <div class="section__head">
+        <p class="section__index reveal">02</p>
+        <h2 class="section__title" data-split>Featured Project</h2>
+      </div>
+      <div class="mechaedu__hero">
+        <h3 class="mechaedu__logo" data-split>MECHAEDU</h3>
+      </div>
+      <div class="mechaedu__grid">
+        <div class="mechaedu__body">
+          <p class="mechaedu__desc reveal">
+            理系大学生・高校生向けの教育アプリ。<br>
+            数学・物理・機械工学を、講義動画・演習問題・解説資料で学べるサービスを目指しています。
+          </p>
+          <div class="mechaedu__tags reveal">
+            <span class="tag">EdTech</span>
+            <span class="tag">Mathematics</span>
+            <span class="tag">Physics</span>
+            <span class="tag">Mechanical Eng.</span>
+            <span class="tag">iOS App</span>
+          </div>
+          <a href="#contact" class="btn btn--pill magnetic fill-hover reveal" data-cursor="hover">
+            <span class="btn__label">View Project</span>
+            <span class="btn__arrow">→</span>
+          </a>
+        </div>
+        <div class="mechaedu__photo photo-reveal">
+          <div class="photo-reveal__mask">
+            <!-- <img src="https://placehold.co/900x640/dfe6f2/8b95ab?text=MECHAEDU" alt="MECHAEDUアプリのイメージ"
+              class="photo-reveal__img" data-parallax> -->
+            <img src="076D6084-1395-45D6-8329-773576FD81D3.png" alt="MECHAEDUアプリのイメージ" class="photo-reveal__img"
+              data-parallax>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section class="section skills" id="skills">
+      <div class="section__head">
+        <p class="section__index reveal">03</p>
+        <h2 class="section__title" data-split>Skills</h2>
+      </div>
+      <div class="skills__rows">
+        <div class="skills__row reveal fill-hover">
+          <h3 class="skills__cat">Engineering</h3>
+          <p class="skills__items">Mechanical Engineering / Mathematics / Physics</p>
+        </div>
+        <div class="skills__row reveal fill-hover">
+          <h3 class="skills__cat">Development</h3>
+          <p class="skills__items">Swift / Xcode / Python / C++ / HTML / CSS / JavaScript / AWS / Autodesk Fusion /
+            MATLAB</p>
+        </div>
+        <div class="skills__row reveal fill-hover">
+          <h3 class="skills__cat">Design</h3>
+          <p class="skills__items">Figma / Canva / LaTeX / UI/UX Design</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section class="section education" id="education">
+      <div class="section__head">
+        <p class="section__index reveal">04</p>
+        <h2 class="section__title" data-split>Education</h2>
+      </div>
+      <div class="education__card reveal">
+        <p class="education__school">Toyo University</p>
+        <p class="education__detail">Faculty of Science and Engineering</p>
+        <p class="education__detail">Department of Mechanical Engineering</p>
+      </div>
+    </section>
+
+    <!-- ===== VISION ===== -->
+    <section class="section vision" id="vision">
+      <div class="section__head">
+        <p class="section__index reveal">05</p>
+        <h2 class="section__title" data-split>Vision</h2>
+      </div>
+      <p class="vision__statement" data-split-lines>
+        機械工学 × AI × 教育。テクノロジーの力で、次の世代のエンジニアが学びやすい世界をつくる。
+      </p>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section contact" id="contact">
+      <div class="section__head">
+        <p class="section__index reveal">06</p>
+        <h2 class="section__title" data-split>Contact / Links</h2>
+      </div>
+      <p class="contact__lead reveal">お気軽にご連絡ください</p>
+      <ul class="contact__list">
+        <!-- href は後からご自身のリンクに差し替えてください -->
+        <li class="reveal"><a href="mailto:" class="contact__link fill-hover"
+            data-cursor="hover"><span>Email</span><span class="contact__arrow">↗</span></a></li>
+        <li class="reveal"><a href="#" class="contact__link fill-hover" data-cursor="hover"><span>GitHub</span><span
+              class="contact__arrow">↗</span></a></li>
+        <li class="reveal"><a href="#" class="contact__link fill-hover" data-cursor="hover"><span>X /
+              Instagram</span><span class="contact__arrow">↗</span></a></li>
+        <li class="reveal"><a href="#" class="contact__link fill-hover" data-cursor="hover"><span>YouTube</span><span
+              class="contact__arrow">↗</span></a></li>
+        <li class="reveal"><a href="#" class="contact__link fill-hover" data-cursor="hover"><span>LinkedIn</span><span
+              class="contact__arrow">↗</span></a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <p class="footer__big" data-split>SOUYA KOMATSU</p>
+    <div class="footer__bottom">
+      <p>© 2026 Souya Komatsu</p>
+      <a href="#home" class="footer__top magnetic fill-hover" data-cursor="hover">Back to Top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
