@@ -9,6 +9,23 @@
 
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // Fill at least one full bar per group, then duplicate it for a seamless loop.
+  document.querySelectorAll(".hero__marquee").forEach((marquee) => {
+    const groups = marquee.querySelectorAll(".hero__marquee-group");
+    const fillMarquee = () => {
+      const phrase = groups[0].firstElementChild;
+      const phraseWidth = phrase.getBoundingClientRect().width;
+      if (!phraseWidth) return;
+      const count = Math.ceil(marquee.clientWidth / phraseWidth) + 1;
+      groups.forEach((group) => {
+        group.replaceChildren(...Array.from({ length: count }, () => phrase.cloneNode(true)));
+      });
+    };
+    fillMarquee();
+    new ResizeObserver(fillMarquee).observe(marquee);
+    document.fonts.ready.then(fillMarquee);
+  });
+
   /* ------------------------------------------------------------
      1. Curtain — ローディング & ページ遷移を同じ幕で統一
         入場: 幕が画面を覆った状態 → ブランド文字がせり上がる → 幕が上に抜ける
