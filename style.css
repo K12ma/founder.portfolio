@@ -229,6 +229,7 @@ body.is-loaded .hero__word { transform: translateY(0); }
 }
 .hero__marquee-track {
   display: flex;
+  flex-flow: row nowrap;
   width: max-content;
   animation: marquee 22s linear infinite;
   font-family: var(--font-en); font-weight: 600;
@@ -236,7 +237,7 @@ body.is-loaded .hero__word { transform: translateY(0); }
   color: var(--ink-soft);
 }
 /* Equal, non-shrinking groups make -50% exactly one seamless repeat. */
-.hero__marquee-group { display: flex; flex-shrink: 0; }
+.hero__marquee-group { display: flex; flex-flow: row nowrap; flex-shrink: 0; }
 .hero__marquee-group > span { flex-shrink: 0; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
@@ -449,7 +450,7 @@ body.is-loaded .hero__word { transform: translateY(0); }
   line-height: 1.1; margin-bottom: 16px;
 }
 .education__logo {
-  width: clamp(44px, 6vw, 72px); height: auto;
+  width: clamp(32px, 3.5vw, 48px); height: auto;
   flex-shrink: 0; object-fit: contain;
 }
 .education__school > span { min-width: 0; }
