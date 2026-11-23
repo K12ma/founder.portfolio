@@ -339,6 +339,14 @@
   const eduCard = document.querySelector(".education__card");
   if (eduCard) io.observe(eduCard);
 
+  /* Skills: split each row's items into spans for staggered entrance */
+  document.querySelectorAll(".skills__items").forEach((p) => {
+    const parts = p.textContent.split(" / ").map((s) => s.trim()).filter(Boolean);
+    p.innerHTML = parts
+      .map((s, i) => `<span class="skill-item" style="--d:${i * 70}ms">${s}</span>`)
+      .join('<span class="skill-sep"> / </span>');
+  });
+
   if (!prefersReduced) {
     const gears = [...document.querySelectorAll(".gear")];
     const traj = document.querySelector(".trajectory");

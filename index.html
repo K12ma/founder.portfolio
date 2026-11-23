@@ -195,7 +195,7 @@
         <div class="lab__logs">
           <article class="lab__log reveal">
             <p class="lab__log-meta">CURRENT FOCUS</p>
-            <h3 class="lab__log-title">回路と制御の基礎実験</h3>
+            <h3 class="lab__log-title">センサーで読み、判断し、サーボを動かす</h3>
             <div class="lab__instruments" aria-hidden="true">
               <svg class="servo-dial" viewBox="0 0 48 48" width="48" height="48">
                 <circle cx="24" cy="24" r="20" fill="none" stroke="#e3e6ea" stroke-width="2"/>
@@ -206,14 +206,17 @@
                 <polyline class="pwm-wave" points="0,24 20,24 20,8 40,8 40,24 60,24 60,8 80,8 80,24 100,24 100,8 120,8 120,24 140,24 140,8 160,8" fill="none" stroke="#2b5cff" stroke-width="2"/>
               </svg>
             </div>
-            <p class="lab__log-body">Arduinoキット（ELEGOO UNO R3）で、LED回路や抵抗・電流・電圧といった基礎から、センサー入力とサーボ制御へ段階的に進めている。</p>
-            <p class="lab__log-next">Next — サーボによる可動機構の試作へ</p>
+            <p class="lab__log-body">目標は回路の基礎そのものではなく、「入力を読む → 判断する → 狙った位置へ動かす」というロボットの最小ループを自分の手で作れるようになること。Arduinoキット（ELEGOO UNO R3）で基礎回路は入口として押さえ、サーボ制御へ進めている。</p>
+            <p class="lab__log-next">Next — サーボを左・中央・右の3位置へ正確に動かす</p>
             <details class="lab__details">
-              <summary data-cursor="hover">実験の詳細を見る</summary>
+              <summary data-cursor="hover">目標と段階を見る</summary>
               <div class="lab__details-body">
-                <p><strong>目的：</strong>オームの法則とLEDの電流制限など、回路の基礎を実測で理解する。</p>
-                <p><strong>進め方：</strong>ブレッドボードで回路を組み、抵抗値を変えながら明るさと電流の変化を確かめる。</p>
-                <p><strong>次につなげる：</strong>センサー入力の読み取りと、サーボモーターの角度制御。</p>
+                <p><strong>最終目標：</strong>CADで設計したBDX風ロボットの頭部（1軸）を実物で動かせるようになり、ゆくゆくはカメラとLiDARを使った自律移動の判断まで作れるようになること。</p>
+                <p><strong>段階目標 1：</strong>センサーの入力を読んで判断し、サーボを左・中央・右の3位置へ動かす。ロボットの最小ループを自力で組める状態を目指す。</p>
+                <p><strong>段階目標 2：</strong>実物を測ってCADで作った頭部機構を、実物で動かす。画面の中の設計を、現物の動きに変える。</p>
+                <p><strong>段階目標 3：</strong>ステップ応答を実測し、P補正と不感帯で「指示した角度」と「実際に動いた角度」の誤差を詰める。</p>
+                <p><strong>段階目標 4：</strong>状態機械・差動駆動・カメラ計測・LiDAR模擬スキャンを組み合わせ、自律移動のシミュレーションまでつなげる。</p>
+                <p><strong>進め方：</strong>オームの法則などの基礎回路は入口として短く済ませ、各段階で「動く実物」と「測った結果」を残しながら進める。</p>
               </div>
             </details>
           </article>
@@ -233,9 +236,9 @@
         <h2 class="section__title" data-split>Skills</h2>
       </div>
       <div class="skills__gears" aria-hidden="true">
-        <svg class="gear gear--1" viewBox="0 0 100 100"><path d="M50 20 L55 8 L65 12 L66 24 L78 22 L82 32 L71 38 L80 46 L76 56 L64 54 L64 67 L54 70 L48 59 L36 63 L30 54 L39 46 L29 38 L34 28 L46 31 Z M50 40 a10 10 0 1 0 .001 0 Z" fill="#2b5cff" opacity="0.85"/></svg>
-        <svg class="gear gear--2" viewBox="0 0 100 100"><path d="M50 20 L55 8 L65 12 L66 24 L78 22 L82 32 L71 38 L80 46 L76 56 L64 54 L64 67 L54 70 L48 59 L36 63 L30 54 L39 46 L29 38 L34 28 L46 31 Z M50 40 a10 10 0 1 0 .001 0 Z" fill="#101418" opacity="0.55"/></svg>
-        <svg class="gear gear--3" viewBox="0 0 100 100"><path d="M50 20 L55 8 L65 12 L66 24 L78 22 L82 32 L71 38 L80 46 L76 56 L64 54 L64 67 L54 70 L48 59 L36 63 L30 54 L39 46 L29 38 L34 28 L46 31 Z M50 40 a10 10 0 1 0 .001 0 Z" fill="#2b5cff" opacity="0.45"/></svg>
+        <svg class="gear gear--1" viewBox="0 0 100 100"><path d="M85.0 50.0 L84.6 55.1 L92.2 58.5 L90.8 63.7 L82.5 62.9 L80.3 67.5 L77.4 71.7 L82.3 78.4 L78.4 82.3 L71.7 77.4 L67.5 80.3 L62.9 82.5 L63.7 90.8 L58.5 92.2 L55.1 84.6 L50.0 85.0 L44.9 84.6 L41.5 92.2 L36.3 90.8 L37.1 82.5 L32.5 80.3 L28.3 77.4 L21.6 82.3 L17.7 78.4 L22.6 71.7 L19.7 67.5 L17.5 62.9 L9.2 63.7 L7.8 58.5 L15.4 55.1 L15.0 50.0 L15.4 44.9 L7.8 41.5 L9.2 36.3 L17.5 37.1 L19.7 32.5 L22.6 28.3 L17.7 21.6 L21.6 17.7 L28.3 22.6 L32.5 19.7 L37.1 17.5 L36.3 9.2 L41.5 7.8 L44.9 15.4 L50.0 15.0 L55.1 15.4 L58.5 7.8 L63.7 9.2 L62.9 17.5 L67.5 19.7 L71.7 22.6 L78.4 17.7 L82.3 21.6 L77.4 28.3 L80.3 32.5 L82.5 37.1 L90.8 36.3 L92.2 41.5 L84.6 44.9 Z M61 50 a11 11 0 1 0 -22 0 a11 11 0 1 0 22 0 Z" fill="#2b5cff" opacity="0.85" fill-rule="evenodd"/></svg>
+        <svg class="gear gear--2" viewBox="0 0 100 100"><path d="M85.0 50.0 L84.6 55.1 L92.2 58.5 L90.8 63.7 L82.5 62.9 L80.3 67.5 L77.4 71.7 L82.3 78.4 L78.4 82.3 L71.7 77.4 L67.5 80.3 L62.9 82.5 L63.7 90.8 L58.5 92.2 L55.1 84.6 L50.0 85.0 L44.9 84.6 L41.5 92.2 L36.3 90.8 L37.1 82.5 L32.5 80.3 L28.3 77.4 L21.6 82.3 L17.7 78.4 L22.6 71.7 L19.7 67.5 L17.5 62.9 L9.2 63.7 L7.8 58.5 L15.4 55.1 L15.0 50.0 L15.4 44.9 L7.8 41.5 L9.2 36.3 L17.5 37.1 L19.7 32.5 L22.6 28.3 L17.7 21.6 L21.6 17.7 L28.3 22.6 L32.5 19.7 L37.1 17.5 L36.3 9.2 L41.5 7.8 L44.9 15.4 L50.0 15.0 L55.1 15.4 L58.5 7.8 L63.7 9.2 L62.9 17.5 L67.5 19.7 L71.7 22.6 L78.4 17.7 L82.3 21.6 L77.4 28.3 L80.3 32.5 L82.5 37.1 L90.8 36.3 L92.2 41.5 L84.6 44.9 Z M61 50 a11 11 0 1 0 -22 0 a11 11 0 1 0 22 0 Z" fill="#101418" opacity="0.55" fill-rule="evenodd"/></svg>
+        <svg class="gear gear--3" viewBox="0 0 100 100"><path d="M85.0 50.0 L84.6 55.1 L92.2 58.5 L90.8 63.7 L82.5 62.9 L80.3 67.5 L77.4 71.7 L82.3 78.4 L78.4 82.3 L71.7 77.4 L67.5 80.3 L62.9 82.5 L63.7 90.8 L58.5 92.2 L55.1 84.6 L50.0 85.0 L44.9 84.6 L41.5 92.2 L36.3 90.8 L37.1 82.5 L32.5 80.3 L28.3 77.4 L21.6 82.3 L17.7 78.4 L22.6 71.7 L19.7 67.5 L17.5 62.9 L9.2 63.7 L7.8 58.5 L15.4 55.1 L15.0 50.0 L15.4 44.9 L7.8 41.5 L9.2 36.3 L17.5 37.1 L19.7 32.5 L22.6 28.3 L17.7 21.6 L21.6 17.7 L28.3 22.6 L32.5 19.7 L37.1 17.5 L36.3 9.2 L41.5 7.8 L44.9 15.4 L50.0 15.0 L55.1 15.4 L58.5 7.8 L63.7 9.2 L62.9 17.5 L67.5 19.7 L71.7 22.6 L78.4 17.7 L82.3 21.6 L77.4 28.3 L80.3 32.5 L82.5 37.1 L90.8 36.3 L92.2 41.5 L84.6 44.9 Z M61 50 a11 11 0 1 0 -22 0 a11 11 0 1 0 22 0 Z" fill="#2b5cff" opacity="0.45" fill-rule="evenodd"/></svg>
       </div>
       <div class="skills__rows">
         <div class="skills__row reveal fill-hover">
@@ -299,12 +302,15 @@
             <p class="trajectory__desc">技術・動き・創造性を融合した体験づくりに携わることを長期目標とする。</p>
           </li>
         </ol>
-        <p class="trajectory__note reveal">Trajectory は現在の在籍・実績ではなく、目指している進路を示したものです。</p>
-        <div class="vision__photo photo-reveal">
-          <div class="photo-reveal__mask">
-            <img src="vision-gear-ai-book.webp" alt="ギアとニューラルネットワーク、開いた本を組み合わせた機械工学×AI×教育のイメージ"
-              class="photo-reveal__img" data-parallax loading="lazy">
+        <div class="vision__side">
+          <div class="vision__photo photo-reveal">
+            <div class="photo-reveal__mask">
+              <img src="vision-gear-ai-book.webp" alt="ギアとニューラルネットワーク、開いた本を組み合わせた機械工学×AI×教育のイメージ"
+                class="photo-reveal__img" data-parallax loading="lazy">
+            </div>
           </div>
+          <p class="vision__caption" aria-hidden="true">MECHANICAL ENGINEERING × AI × EDUCATION</p>
+          <p class="trajectory__note reveal">Trajectory は現在の在籍・実績ではなく、目指している進路を示したものです。</p>
         </div>
       </div>
     </section>
