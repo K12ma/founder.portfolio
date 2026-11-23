@@ -195,7 +195,7 @@
         <div class="lab__logs">
           <article class="lab__log reveal">
             <p class="lab__log-meta">CURRENT FOCUS</p>
-            <h3 class="lab__log-title">回路と制御の基礎実験</h3>
+            <h3 class="lab__log-title">センサーで読み、判断し、サーボを動かす</h3>
             <div class="lab__instruments" aria-hidden="true">
               <svg class="servo-dial" viewBox="0 0 48 48" width="48" height="48">
                 <circle cx="24" cy="24" r="20" fill="none" stroke="#e3e6ea" stroke-width="2"/>
@@ -206,14 +206,17 @@
                 <polyline class="pwm-wave" points="0,24 20,24 20,8 40,8 40,24 60,24 60,8 80,8 80,24 100,24 100,8 120,8 120,24 140,24 140,8 160,8" fill="none" stroke="#2b5cff" stroke-width="2"/>
               </svg>
             </div>
-            <p class="lab__log-body">Arduinoキット（ELEGOO UNO R3）で、LED回路や抵抗・電流・電圧といった基礎から、センサー入力とサーボ制御へ段階的に進めている。</p>
-            <p class="lab__log-next">Next — サーボによる可動機構の試作へ</p>
+            <p class="lab__log-body">目標は回路の基礎そのものではなく、「入力を読む → 判断する → 狙った位置へ動かす」というロボットの最小ループを自分の手で作れるようになること。Arduinoキット（ELEGOO UNO R3）で基礎回路は入口として押さえ、サーボ制御へ進めている。</p>
+            <p class="lab__log-next">Next — サーボを左・中央・右の3位置へ正確に動かす</p>
             <details class="lab__details">
-              <summary data-cursor="hover">実験の詳細を見る</summary>
+              <summary data-cursor="hover">目標と段階を見る</summary>
               <div class="lab__details-body">
-                <p><strong>目的：</strong>オームの法則とLEDの電流制限など、回路の基礎を実測で理解する。</p>
-                <p><strong>進め方：</strong>ブレッドボードで回路を組み、抵抗値を変えながら明るさと電流の変化を確かめる。</p>
-                <p><strong>次につなげる：</strong>センサー入力の読み取りと、サーボモーターの角度制御。</p>
+                <p><strong>最終目標：</strong>CADで設計したBDX風ロボットの頭部（1軸）を実物で動かせるようになり、ゆくゆくはカメラとLiDARを使った自律移動の判断まで作れるようになること。</p>
+                <p><strong>段階目標 1：</strong>センサーの入力を読んで判断し、サーボを左・中央・右の3位置へ動かす。ロボットの最小ループを自力で組める状態を目指す。</p>
+                <p><strong>段階目標 2：</strong>実物を測ってCADで作った頭部機構を、実物で動かす。画面の中の設計を、現物の動きに変える。</p>
+                <p><strong>段階目標 3：</strong>ステップ応答を実測し、P補正と不感帯で「指示した角度」と「実際に動いた角度」の誤差を詰める。</p>
+                <p><strong>段階目標 4：</strong>状態機械・差動駆動・カメラ計測・LiDAR模擬スキャンを組み合わせ、自律移動のシミュレーションまでつなげる。</p>
+                <p><strong>進め方：</strong>オームの法則などの基礎回路は入口として短く済ませ、各段階で「動く実物」と「測った結果」を残しながら進める。</p>
               </div>
             </details>
           </article>
