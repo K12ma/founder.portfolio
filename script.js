@@ -331,4 +331,67 @@
       document.body.style.overflow = "";
     });
   });
+
+  /* ------------------------------------------------------------
+     9. v2 animations — gears / trajectory progress / MECHAEDU tilt /
+        hero servo-step pointer parallax / education dim-line
+  ------------------------------------------------------------ */
+  const eduCard = document.querySelector(".education__card");
+  if (eduCard) io.observe(eduCard);
+
+  if (!prefersReduced) {
+    const gears = [...document.querySelectorAll(".gear")];
+    const traj = document.querySelector(".trajectory");
+    const trajProgress = document.getElementById("trajProgress");
+    const trajSteps = [...document.querySelectorAll(".trajectory__step")];
+    const mechaFrame = document.querySelector(".mechaedu-frame");
+    const mechaSection = document.getElementById("mechaedu");
+    let v2Ticking = false;
+
+    const updateV2 = () => {
+      const y = window.scrollY;
+      const vh = window.innerHeight;
+      if (gears.length) {
+        const a = y * 0.12;
+        if (gears[0]) gears[0].style.transform = `rotate(${a}deg)`;
+        if (gears[1]) gears[1].style.transform = `rotate(${-a * 1.5}deg)`;
+        if (gears[2]) gears[2].style.transform = `rotate(${a * 2}deg)`;
+      }
+      if (traj && trajProgress) {
+        const rect = traj.getBoundingClientRect();
+        const t = Math.min(1, Math.max(0, (vh * 0.7 - rect.top) / rect.height));
+        trajProgress.style.height = `${t * (rect.height - 12)}px`;
+        trajSteps.forEach((step, i) => {
+          step.classList.toggle("is-active", t >= (i + 0.5) / trajSteps.length);
+        });
+      }
+      if (mechaFrame && mechaSection) {
+        const rect = mechaSection.getBoundingClientRect();
+        const p = Math.min(1, Math.max(0, 1 - rect.top / (vh * 0.85)));
+        mechaFrame.style.setProperty("--tilt", `${(1 - p) * 7}deg`);
+      }
+      v2Ticking = false;
+    };
+    window.addEventListener("scroll", () => {
+      if (!v2Ticking) { v2Ticking = true; requestAnimationFrame(updateV2); }
+    }, { passive: true });
+    updateV2();
+
+    // Hero: quantized (servo-step) pointer parallax on the visual mask
+    const heroVisual = document.querySelector(".hero__visual .photo-reveal__mask");
+    const heroSection = document.querySelector(".hero");
+    if (heroVisual && heroSection && window.matchMedia("(hover: hover)").matches) {
+      heroSection.addEventListener("pointermove", (e) => {
+        const rect = heroSection.getBoundingClientRect();
+        const nx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+        const ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+        const stepX = Math.round(nx * 6);
+        const stepY = Math.round(ny * 4);
+        heroVisual.style.transform = `translate3d(${stepX}px, ${stepY}px, 0)`;
+      }, { passive: true });
+      heroSection.addEventListener("pointerleave", () => {
+        heroVisual.style.transform = "";
+      });
+    }
+  }
 })();
