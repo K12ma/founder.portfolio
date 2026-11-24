@@ -68,6 +68,8 @@ ul { list-style: none; }
   border-radius: 0 0 50% 50% / 0 0 100% 100%;
 }
 .curtain.is-open .curtain__panel { transform: translateY(-118%); }
+/* ページ遷移時の幕は文字なし(サイトへの初回入場時のみブランドを出す) */
+.curtain.is-plain .curtain__brand { display: none; }
 
 /* 幕の中央の大型ブランドタイポ */
 .curtain__brand {
