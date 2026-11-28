@@ -51,17 +51,31 @@
   }
 
   // ---- 入場アニメーション ----
+  // サイト内を移動してきた場合は「遷移用の幕」として文字を出さない
+  let plainEntry = false;
+  try {
+    plainEntry = sessionStorage.getItem("pf-entered") === "1";
+    if (!plainEntry && document.referrer) {
+      const ref = new URL(document.referrer);
+      plainEntry =
+        ref.origin === location.origin ||
+        ref.href.includes("k12ma.github.io/founder.portfolio");
+    }
+  } catch {}
+  if (plainEntry && curtain) curtain.classList.add("is-plain");
+
   let curtainOpened = false;
   const openCurtain = () => {
     if (curtainOpened || !curtain) return;
     curtainOpened = true;
-    // 文字がせり上がる
+    try { sessionStorage.setItem("pf-entered", "1"); } catch {}
+    // 文字がせり上がる(遷移時は文字がないので短く開く)
     requestAnimationFrame(() => curtain.classList.add("is-intro"));
     // 少し見せてから幕が上に抜ける
     setTimeout(() => {
       curtain.classList.add("is-open");
       document.body.classList.add("is-loaded");
-    }, prefersReduced ? 0 : 1500);
+    }, prefersReduced ? 0 : plainEntry ? 450 : 1500);
   };
 
   window.addEventListener("load", openCurtain, { once: true });
@@ -74,6 +88,8 @@
       return;
     }
     curtain.classList.remove("is-open");
+    curtain.classList.add("is-plain"); // 遷移の幕では文字を出さない
+    try { sessionStorage.setItem("pf-entered", "1"); } catch {}
     // 幕を画面下に瞬間移動させてから、下→上に覆う
     panel.style.transition = "none";
     panel.style.transform = "translateY(118%)";
